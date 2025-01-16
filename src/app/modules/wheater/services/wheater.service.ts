@@ -12,9 +12,12 @@ export class WheaterService {
   constructor(private http: HttpClient) {}
 
 
-  getWeatherDatas(city: string): Observable<any>{
-
-    return this.http.get(`api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&mode=json&appid=${this.apiKey}`, {});
+  // https://api.openweathermap.org/data/2.5/weather?q=Salvador,br&APPID=6ee06edd8944451b862b7282d391f70d
+  getWeatherDatas(cityName: string): Observable<any> {
+    return this.http.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName},br&APPID=${this.apiKey}`,
+      {}
+    );
   }
 
 }
